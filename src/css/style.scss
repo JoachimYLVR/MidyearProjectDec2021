@@ -1,0 +1,47 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+body {
+  background-image: url("../images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  main {
+    max-width: 1000px;
+    width: 85%;
+    margin: auto;
+    background-color: white;
+    height: 100%;
+    padding: 20px;
+    h1 {
+      padding: 50px 0px;
+      font-size: 30px;
+    }
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      .form {
+        border: solid black 2px;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: lightgoldenrodyellow;
+        p {
+          margin-bottom: 20px;
+        }
+        .input {
+          margin-bottom: 20px;
+        }
+        .dropdown-menu {
+          height: 200px;
+          overflow: auto;
+        }
+      }
+      .map {
+        min-height: 500px;
+        border: solid black 2px;
+        border-radius: 10px;
+        background-color: lightgoldenrodyellow;
+      }
+    }
+  }
+}
