@@ -16,8 +16,8 @@ const initialState = {
 
 export const getLocation = createAsyncThunk(
     "location/getLocation",
-    async (dispatch, thunkAPI) =>
-      (await axios(`https://api.zippopotam.us/${thunkAPI.getState.locationReducer.searchObj.country}/${thunkAPI.getState.locationReducer.searchObj.postalCode}`)).data
+    async (searchObj) =>
+      (await axios(`https://api.zippopotam.us/${searchObj.country}/${searchObj.postalCode}`)).data
   );
 
 const mySlice = createSlice({
