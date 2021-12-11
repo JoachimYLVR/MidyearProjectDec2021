@@ -1,10 +1,10 @@
 import "../css/style.scss";
-import Form from "./components/Form.js";
+import Form from "./components/Form";
+import store from "./data";
 
 const formRef = document.querySelector(".form");
 Form(formRef);
-
-
+const locRef = document.querySelector(".location");
 
 /*const dropdownRef = document.querySelector(".dropdown");
 const choiceRef = dropdownRef.querySelector(".dropdown-content");

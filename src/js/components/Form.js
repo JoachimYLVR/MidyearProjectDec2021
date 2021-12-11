@@ -1,9 +1,14 @@
+import store from "../data";
+import { setSearchValue, getLocation } from "../data/location";
+
 class Form {
   constructor(holder) {
     this.holder = holder;
     this.dropdownRef = "";
     this.choiceRef = "";
     this.selectRef = "";
+    this.submitRef = "";
+    this.inputRef = "";
     this.init();
     this.events();
   }
@@ -46,12 +51,14 @@ class Form {
               </div>
             </div>
           </div>
-          <button class="button">Submit</button>
+          <button id="submit" class="button">Submit</button>
       `
     );
     this.dropdownRef = this.holder.querySelector(".dropdown");
     this.choiceRef = this.holder.querySelector(".dropdown-content");
     this.selectRef = this.holder.querySelector(".selection");
+    this.submitRef = this.holder.querySelector("#submit");
+    this.inputRef = this.holder.querySelector(".input");
   }
   events() {
     this.dropdownRef.addEventListener("click", (e)=>{
@@ -66,6 +73,11 @@ class Form {
     this.choiceRef.addEventListener("click", (e)=>{
       e.preventDefault();
       this.selectRef.innerHTML = e.target.innerHTML;
+    });
+    this.submitRef.addEventListener("click", (e)=>{
+      e.preventDefault();
+      store.dispatch(setSearchValue({country:this.selectRef.innerHTML,postalCode:this.inputRef.value}));
+      store.dispatch(getLocation());
     })
   }
 }

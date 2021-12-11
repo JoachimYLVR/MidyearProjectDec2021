@@ -12,8 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.0",
+    "axios": "^0.24.0",
     "bulma": "^0.9.3",
-    "parcel": "^2.0.1"
+    "parcel": "^2.0.1",
+    "redux": "^4.1.2",
+    "redux-logger": "^3.0.6"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.1"
