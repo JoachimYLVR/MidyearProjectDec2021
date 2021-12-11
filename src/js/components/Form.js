@@ -1,81 +1,72 @@
-import store from "../data";
-
 class Form {
   constructor(holder) {
     this.holder = holder;
+    this.dropdownRef = "";
+    this.choiceRef = "";
+    this.selectRef = "";
     this.init();
-    this.render();
     this.events();
-    store.subscribe(this.render.bind(this));
-  }
-  events() {
-    this.btn.onclick = () => {
-      store.dispatch(getRandomJoke());
-    };
   }
   init() {
     this.holder.insertAdjacentHTML(
       "beforeend",
       `
-    <p>Please select a country from the dropdown list and enter your postal code.</p>
-    <input class="input" type="text" placeholder="Text input">
-    <div class="dropdown is-active">
-        <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span>Dropdown button</span>
+      <p>
+            Please enter your postal code and select a country from the dropdown
+            list.
+          </p>
+          <input
+            class="input"
+            type="text"
+            placeholder="Enter your postal code"
+          />
+          <div class="dropdown">
+            <div class="dropdown-trigger">
+              <button
+                class="button"
+                aria-haspopup="true"
+                aria-controls="dropdown-menu3"
+              >
+                <span class="selection">Select country</span>
                 <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
-            </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
-                <a href="#" class="dropdown-item">
-                    Dropdown item
-                </a>
-                <a href="#" class="dropdown-item">
-                    Other dropdown item
-                </a>
-                <a href="#" class="dropdown-item">
-                    Active dropdown item
-                </a>
-                <a href="#" class="dropdown-item">
-                    Other dropdown item
-                </a>
+              </button>
             </div>
-        </div>
-    </div>
-    <button>Submit</button>
-    `
+            <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item"> Austria </a>
+                <a href="#" class="dropdown-item"> Australia </a>
+                <a href="#" class="dropdown-item"> Belgium </a>
+                <a href="#" class="dropdown-item"> Germany </a>
+                <a href="#" class="dropdown-item"> Holland </a>
+                <a href="#" class="dropdown-item"> Luxembourg </a>
+                <a href="#" class="dropdown-item"> Portugal </a>
+                <a href="#" class="dropdown-item"> United States </a>
+              </div>
+            </div>
+          </div>
+          <button class="button">Submit</button>
+      `
     );
-    this.h1_1 = this.holder.querySelector("h1:nth-of-type(1)");
-    this.h1_2 = this.holder.querySelector("h1:nth-of-type(2)");
-    this.btn = this.holder.querySelector("button");
+    this.dropdownRef = this.holder.querySelector(".dropdown");
+    this.choiceRef = this.holder.querySelector(".dropdown-content");
+    this.selectRef = this.holder.querySelector(".selection");
   }
-  show() {
-    this.h1_1.style.display = "block";
-    this.h1_2.style.display = "block";
-    this.btn.style.display = "block";
-  }
-  hide() {
-    this.h1_1.style.display = "none";
-    this.h1_2.style.display = "none";
-    this.btn.style.display = "none";
-  }
-  render() {
-    const {
-      joke: { setup, delivery },
-      loading
-    } = store.getState().joke;
-    if (loading || !setup) {
-      this.hide();
-    } else {
-      this.show();
-    }
-    if (setup) {
-      this.h1_1.innerText = setup;
-      this.h1_2.innerText = delivery;
-    }
+  events() {
+    this.dropdownRef.addEventListener("click", (e)=>{
+      e.preventDefault();
+      if(this.dropdownRef.classList.contains("is-active")){
+          this.dropdownRef.classList.remove("is-active")
+      }else{
+          this.dropdownRef.classList.add("is-active")
+      }
+      
+    });
+    this.choiceRef.addEventListener("click", (e)=>{
+      e.preventDefault();
+      this.selectRef.innerHTML = e.target.innerHTML;
+    })
   }
 }
 
