@@ -1,40 +1,60 @@
 import store from "../data";
 
 class Location {
-  constructor(holder) {
+  constructor(holder, spinnerRef) {
     this.holder = holder;
-    this.loadingRef = null;
-    this.resultRef = null;
-    this.init()
-    //store.subscribe(this.render.bind(this));
+    this.spinnerRef = spinnerRef;
+    this.resultRef = this.init()
+    store.subscribe(this.render.bind(this));
   }
   init() {
     this.holder.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="loading">Looking up your location</div>
       <div class="result"></div>
       `
       );
-      this.loadingRef = this.holder.querySelector(".loading");
-      this.resultRef = this.holder.querySelector(".result");
+      return this.holder.querySelector(".result");
+  }
+  showSpinner() {
+    this.spinnerRef.style.display = "block";
+  }
+  hideSpinner() {
+    this.spinnerRef.style.display = "none";
   }
   render() {
     const {
-      locationrReducer: { location }
+      locationReducer: { location, loading }
     } = store.getState();
-    if (location !== {}) {
+    if (loading){
+      this.showSpinner();
+    }else{
+      this.hideSpinner();
+    }
+    console.log("dit is een test")
+    if (Object.keys(location).length !== 0) {
       this.resultRef.insertAdjacentHTML(
           "beforeend",
-          `
-          <h2>${location.places[0]["place name"]}</h2>
-          <p>Country: ${location.country}</p>
-          <p>State: ${location.places[0].state}</p>
-          <p>Postal code: ${location["post code"]}</p>
+          `<div class="card">
+            <div class="card-content">
+              <div class="subtitle">
+              ${location.places[0]["place name"]}
+              </div>
+              <div class="content">
+              Country: ${location.country}
+              </div>
+              <div class="content">
+              State: ${location.places[0].state}
+              </div>
+              <div class="content">
+              Postal code: ${location["post code"]}
+              </div>
+            </div>
+          </div>
           `
           );
     }
   }
 }
 
-export default (holder) => new Cocktails(holder);
+export default (holder, spinner) => new Location(holder, spinner);

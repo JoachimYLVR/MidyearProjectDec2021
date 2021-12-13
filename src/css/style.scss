@@ -1,5 +1,22 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  display: none;
+  border-radius: 5px;
+  border: solid darkslategray 2px;
+  box-shadow: 10px 10px 10px grey;
+  img {
+    left: calc(50% - 50px);
+    overflow: hidden;
+  }
+}
+
 body {
   background-image: url("../images/background.jpg");
   background-position: center;
@@ -20,11 +37,18 @@ body {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
+      .form,
+      .location,
+      .map {
+        min-height: 500px;
+        border: solid black 2px;
+        border-radius: 10px;
+        background-color: lightgoldenrodyellow;
+      }
       .form {
         border: solid black 2px;
         border-radius: 10px;
         padding: 20px;
-        background-color: lightgoldenrodyellow;
         p {
           margin-bottom: 20px;
         }
@@ -36,11 +60,17 @@ body {
           overflow: auto;
         }
       }
+      .location {
+        .result {
+          padding: 10px;
+          .card {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+        }
+      }
       .map {
-        min-height: 500px;
-        border: solid black 2px;
-        border-radius: 10px;
-        background-color: lightgoldenrodyellow;
+        display: none;
       }
     }
   }

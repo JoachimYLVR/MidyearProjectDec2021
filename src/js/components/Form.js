@@ -11,7 +11,6 @@ class Form {
     this.inputRef = "";
     this.init();
     this.events();
-    this.getCode();
   }
   init() {
     this.holder.insertAdjacentHTML(
