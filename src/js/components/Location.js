@@ -31,28 +31,28 @@ class Location {
     }else{
       this.hideSpinner();
     }
-    console.log("dit is een test")
     if (Object.keys(location).length !== 0) {
-      this.resultRef.insertAdjacentHTML(
-          "beforeend",
-          `<div class="card">
-            <div class="card-content">
-              <div class="subtitle">
-              ${location.places[0]["place name"]}
-              </div>
-              <div class="content">
-              Country: ${location.country}
-              </div>
-              <div class="content">
-              State: ${location.places[0].state}
-              </div>
-              <div class="content">
-              Postal code: ${location["post code"]}
+      while (this.resultRef.firstChild) this.resultRef.removeChild(this.resultRef.firstChild);
+      this.resultRef.innerHTML = location.places.map((el)=>{
+            return `<div class="card">
+              <div class="card-content">
+                <div class="subtitle">
+                  ${el["place name"]}
+                </div>
+                <div class="content">
+                  Country: ${location.country}
+                </div>
+                <div class="content">
+                  State: ${el.state}
+                </div>
+                <div class="content">
+                  Postal code: ${location["post code"]}
+                </div>
               </div>
             </div>
-          </div>
           `
-          );
+          }).join("")
+          ;
     }
   }
 }

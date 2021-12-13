@@ -21,7 +21,8 @@ body {
   background-image: url("../images/background.jpg");
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  background-attachment: fixed;
+  min-height: 100vh;
   main {
     max-width: 1000px;
     width: 85%;
@@ -43,7 +44,7 @@ body {
         min-height: 500px;
         border: solid black 2px;
         border-radius: 10px;
-        background-color: lightgoldenrodyellow;
+        background-color: lightsteelblue;
       }
       .form {
         border: solid black 2px;
@@ -63,9 +64,14 @@ body {
       .location {
         .result {
           padding: 10px;
-          .card {
-            grid-template-columns: 1fr;
-            gap: 10px;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 10px;
+          .card :hover {
+            box-shadow: 5px 5px 5px darkslategrey;
+          }
+          .card * :hover {
+            box-shadow: none;
           }
         }
       }

@@ -81,8 +81,6 @@ class Form {
       break;
       default : code = "";
     }
-    console.log(this.selectRef.innerHTML)
-    console.log(code);
     return code;
   }
   events() {
