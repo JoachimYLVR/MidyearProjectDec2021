@@ -2,11 +2,11 @@
   "name": "app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "parcel ./src/index.html",
     "clean": "rm -rf .parcel-cache dist output",
-    "build": "parcel build ./src/index.html --dist-dir output"
+    "build": "npm run clean && parcel build ./src/index.html --dist-dir ./out --no-source-maps",
+    "deploy": "surge ./out --domain https://YLVR_postal_code_lookup.surge.sh"
   },
   "keywords": [],
   "author": "",

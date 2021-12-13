@@ -28,7 +28,7 @@ body {
     width: 85%;
     margin: auto;
     background-color: white;
-    height: 100%;
+    min-height: 100vh;
     padding: 20px;
     h1 {
       padding: 50px 0px;
@@ -69,6 +69,7 @@ body {
           gap: 10px;
           .card :hover {
             box-shadow: 5px 5px 5px darkslategrey;
+            transition: 600ms;
           }
           .card * :hover {
             box-shadow: none;
