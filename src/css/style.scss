@@ -3,7 +3,7 @@
 .spinner {
   position: fixed;
   top: 50%;
-  left: 50%;
+  left: calc(50% - 50px);
   width: 100px;
   height: 100px;
   z-index: 1;
@@ -12,7 +12,7 @@
   border: solid darkslategray 2px;
   box-shadow: 10px 10px 10px grey;
   img {
-    left: calc(50% - 50px);
+    left: 50%;
     overflow: hidden;
   }
 }
