@@ -31,7 +31,7 @@ const mySlice = createSlice({
   extraReducers: {
     [getLocation.pending]: (state) => {
         state.loading = true;
-        state.error = false;
+        state.error.status = false;
     },
     [getLocation.rejected]: (state, {payload}) => {
         state.loading = false;
