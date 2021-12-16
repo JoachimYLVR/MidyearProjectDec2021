@@ -12,4 +12,4 @@ https://ylvr_postal_code_lookup.surge.sh/
 
 Choose a country and enter a valid postal code in the input field. Then click on the submit button and hey presto!
 
-![Screenshot](/src/images/Screenshot1.png?raw=true "Screenshot")
+![Screenshot](/src/images/Screenshot1.PNG?raw=true "Screenshot")
