@@ -26,6 +26,7 @@ const mySlice = createSlice({
   reducers: {
     setSearchValue(state, {type, payload}) {
         state.searchObj = payload;
+        state.error.status = false;
     },
   },
   extraReducers: {
@@ -33,7 +34,7 @@ const mySlice = createSlice({
         state.loading = true;
         state.error.status = false;
     },
-    [getLocation.rejected]: (state, {payload}) => {
+    [getLocation.rejected]: (state, { payload }) => {
         state.loading = false;
         state.error.status = true;
         state.error.message = payload;

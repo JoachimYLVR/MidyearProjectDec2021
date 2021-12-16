@@ -6,4 +6,10 @@ Dit project gebruikt https://www.zippopotam.us/ om met de gegevens van de eindge
 
 # Surge link
 
-komt nog
+https://ylvr_postal_code_lookup.surge.sh/
+
+# How to use
+
+Choose a country and enter a valid postal code in the input field. Then click on the submit button and hey presto!
+
+![Alt text](./src/images/Screenshot1.png?raw=true "Screenshot")

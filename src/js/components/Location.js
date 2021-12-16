@@ -1,4 +1,5 @@
 import store from "../data";
+import { toast } from 'bulma-toast'
 
 class Location {
   constructor(holder, spinnerRef) {
@@ -24,12 +25,21 @@ class Location {
   }
   render() {
     const {
-      locationReducer: { location, loading }
+      locationReducer: { location, loading, error }
     } = store.getState();
     if (loading){
       this.showSpinner();
     }else{
       this.hideSpinner();
+    }
+    if (error.status){
+      toast({
+        message: "Something has gone askew. Please try again in a few seconds.",
+        type: 'is-danger',
+        closeOnClick: true,
+        pauseOnHover: true,
+        animate: { in: 'fadeIn', out: 'fadeOut' },
+      })
     }
     if (Object.keys(location).length !== 0) {
       while (this.resultRef.firstChild) this.resultRef.removeChild(this.resultRef.firstChild);
