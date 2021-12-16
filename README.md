@@ -16,7 +16,7 @@ Choose a country and enter a valid postal code in the input field. Then click on
 
 # Dependencies
 
-[Axios](https://axios-http.com/docs/intro)
-[Bulma](https://bulma.io/)
-[Bulma toast](https://rfoel.github.io/bulma-toast/)
-[Redux](https://redux.js.org/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Bulma](https://bulma.io/)
+- [Bulma toast](https://rfoel.github.io/bulma-toast/)
+- [Redux](https://redux.js.org/)
