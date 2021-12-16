@@ -13,3 +13,10 @@ https://ylvr_postal_code_lookup.surge.sh/
 Choose a country and enter a valid postal code in the input field. Then click on the submit button and hey presto!
 
 ![Screenshot](/src/images/Screenshot1.PNG?raw=true "Screenshot")
+
+# Dependencies
+
+[Axios](https://axios-http.com/docs/intro)
+[Bulma](https://bulma.io/)
+[Bulma toast](https://rfoel.github.io/bulma-toast/)
+[Redux](https://redux.js.org/)
